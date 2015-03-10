@@ -22,4 +22,3 @@ right = Pir(6, [printer, rightGoals])
 
 #left.handle()
 
-
