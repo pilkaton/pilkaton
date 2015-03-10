@@ -11,19 +11,20 @@ class Anhem(threading.Thread):
   def handle(self, seconds):
     try: 
       grovepi.pinMode(self.port, "OUTPUT")
+      grovepi.digitalWrite(self.port, 0)
+      self.beep(.4)
+      self.beep(.4)
       self.beep(.2)
       self.beep(.2)
-      self.beep(.1)
-      self.beep(.1)
-      self.beep(.1)
-      time.sleep(.1)
-      self.beep(.1)
-      self.beep(.1)
-      self.beep(.1)
-      self.beep(.1)
-      time.sleep(.1)
-      self.beep(.1)
-      self.beep(.1)
+      self.beep(.2)
+      time.sleep(.2)
+      self.beep(.2)
+      self.beep(.2)
+      self.beep(.2)
+      self.beep(.2)
+      time.sleep(.2)
+      self.beep(.2)
+      self.beep(.2)
      
     except IOError:
       print ("Error")
@@ -41,9 +42,8 @@ class Anhem(threading.Thread):
     grovepi.digitalWrite(self.port, 0)
     time.sleep(sec)
 
-anhem = Anhem(4)
-anhem.handle(666)
-
+#anhem = Anhem(4)
+#anhem.handle(666)
 
 #kogut = DigitalPrinter(7)
 #buzz = DigitalPrinter(2)

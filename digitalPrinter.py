@@ -26,10 +26,10 @@ class DigitalPrinter(threading.Thread):
     t.daemon = True
     t.start()
 
-kogut = DigitalPrinter(7)
-buzz = DigitalPrinter(2)
+#kogut = DigitalPrinter(8)
+#buzz = DigitalPrinter(2)
 
-kogut.notify(5)
-buzz.notify(5)
-time.sleep(10)
+#kogut.notify(5)
+#buzz.notify(5)
+#time.sleep(10)
 

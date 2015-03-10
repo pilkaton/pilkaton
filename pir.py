@@ -15,7 +15,7 @@ class Pir:
       try:
         value = grovepi.digitalRead(self.port)
         if value: # GOAL!!
-          print "gooooool!!!!!", value
+          #print "gooooool!!!!!", value
           for s in self.subscribers: # notify
             s.notify(1)
         time.sleep(.2)

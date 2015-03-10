@@ -5,19 +5,22 @@ import grovepi
 from pir import *
 from lcd import Lcd
 from stats import GoalCounter
+from anhem import Anhem
 
-class Printer:
+class Logger:
   def notify(self, event):
-    print event
+    print "GOAL!"
 
-printer = Printer()
+logger = Logger()
 lcd = Lcd()
+kogut = DigitalPrinter(8)
+anhem = Anhem(4)
 
 leftGoals = GoalCounter()
 rightGoals = GoalCounter()
 
-leftPir = Pir(5, [printer, leftGoals])
-rightPir = Pir(6, [printer, rightGoals])
+leftPir = Pir(5, [logger, leftGoals, kogut, anhem])
+rightPir = Pir(6, [logger, rightGoals, kogut, anhem])
 
 leftPir.start()
 rightPir.start()
