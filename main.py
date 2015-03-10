@@ -11,14 +11,18 @@ class Printer:
     print event
 
 printer = Printer()
-#lcd = Lcd()
+lcd = Lcd()
 
 leftGoals = GoalCounter()
-#rightGoals = GoalCounter()
+rightGoals = GoalCounter()
 
-left = Pir(5, [printer, leftGoals])
-#right = Pir(6, [printer, rightGoals])
+leftPir = Pir(5, [printer, leftGoals])
+rightPir = Pir(6, [printer, rightGoals])
 
-left.handle()
-#right.handle()
+leftPir.start()
+rightPir.start()
+
+while True:
+  time.sleep(1)
+  lcd.notify(str(leftGoals.goals()) + " - " + str(rightGoals.goals()))
 

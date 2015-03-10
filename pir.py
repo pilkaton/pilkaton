@@ -1,4 +1,6 @@
 import grovepi
+import time
+import threading
 from threadPrinter import DigitalPrinter
 
 class Pir:
@@ -15,18 +17,15 @@ class Pir:
         if value: # GOAL!!
           print "gooooool!!!!!", value
           for s in self.subscribers: # notify
-            s.notify(1) 
-
+            s.notify(1)
+        time.sleep(.2)
       except TypeError:
         print ("Error")
       except IOError:
         print ("Error")
 
-
-#kogut = DigitalPrinter(2)
-#buzz = DigitalPrinter(2)
-#goalkeeper1  = Pir(5, [kogut])
-#goalkeeper2  = Pir(6, [kogut])
-#goalkeeper1.handle()
-#goalkeeper2.handle()
+  def start(self):
+    t = threading.Thread(target = self.handle)
+    t.daemon = True
+    t.start()
 

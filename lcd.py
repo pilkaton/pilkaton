@@ -5,11 +5,8 @@ import RPi.GPIO as GPIO
 import smbus
 
 class Lcd:
-  def notify(self, event):
-    print "Start"
-    setText(str(event))
-#    setRGB(0, 255, 0)
-    print "Notyfing"
+  def notify(self, message):
+    setText(str(message))
 
 
 # this device has two I2C addresses
