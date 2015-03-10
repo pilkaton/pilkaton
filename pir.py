@@ -6,16 +6,16 @@ class Pir:
   def __init__(self, port, subscribers):
     self.port = port
     self.subscribers = subscribers
-    print self.limit
   
   def handle(self):
+    grovepi.pinMode(self.port, "INPUT")
     while True:
       try:
-        value = grovepi.ultrasonicRead(self.port)
-        if value < self.limit: # GOAL!!
-          print "gooooool!!!!!", value, self.limit
+        value = grovepi.digitalRead(self.port)
+        if value: # GOAL!!
+          print "gooooool!!!!!", value
           for s in self.subscribers: # notify
-            s.notify(2) 
+            s.notify(1) 
 
       except TypeError:
         print ("Error")
@@ -23,9 +23,10 @@ class Pir:
         print ("Error")
 
 
-kogut = DigitalPrinter(2)
+#kogut = DigitalPrinter(2)
 #buzz = DigitalPrinter(2)
-goalkeeper1  = Ultrasonic(8,[kogut])
-goalkeeper2  = Ultrasonic(7,[kogut])
-goalkeeper1.handle()
-goalkeeper2.handle()
+#goalkeeper1  = Pir(5, [kogut])
+#goalkeeper2  = Pir(6, [kogut])
+#goalkeeper1.handle()
+#goalkeeper2.handle()
+

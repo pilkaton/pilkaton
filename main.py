@@ -2,7 +2,7 @@
 
 import time
 import grovepi
-from ultrasonic import *
+from pir import *
 from lcd import Lcd
 from stats import GoalCounter
 
@@ -11,14 +11,14 @@ class Printer:
     print event
 
 printer = Printer()
-lcd = Lcd()
+#lcd = Lcd()
 
 leftGoals = GoalCounter()
-rightGoals = GoalCounter()
+#rightGoals = GoalCounter()
 
 left = Pir(5, [printer, leftGoals])
-right = Pir(6, [printer, rightGoals])
-#right = Ultrasonic(9, [printer])
+#right = Pir(6, [printer, rightGoals])
 
-#left.handle()
+left.handle()
+#right.handle()
 
