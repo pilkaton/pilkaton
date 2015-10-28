@@ -15,10 +15,6 @@ class Ultrasonic:
       except IOError:
         print ("Error")
 
-ultrasonic = Ultrasonic(8)
-ultrasonic.handle()
-
 #t = threading.Thread(target=ultrasonic.handle)
 #t.start()
-
 
