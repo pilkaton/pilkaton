@@ -2,13 +2,18 @@ import grovepi
 
 class Ultrasonic:
 
-  def __init__(self, port):
+  def __init__(self, port, subscribers):
     self.port = port
+    self.subscribers = subscribers
   
   def handle(self):
     while True:
       try:
-        print (grovepi.ultrasonicRead(self.port))
+        value = grovepi.ultrasonicRead(self.port)
+        if value < 10: # GOAL!!
+          print "SSS", value
+          for s in self.subscribers: # notify
+            s.notify(1) 
 
       except TypeError:
         print ("Error")

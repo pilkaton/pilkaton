@@ -3,7 +3,17 @@
 import time
 import grovepi
 from ultrasonic import *
+from lcd import Lcd
 
-ultrasonic = Ultrasonic(8)
-ultrasonic.handle()
+class Printer:
+  def notify(self, event):
+    print event
+
+printer = Printer()
+lcd = Lcd()
+
+left = Ultrasonic(8, [printer, lcd])
+#right = Ultrasonic(9, [printer])
+
+left.handle()
 
