@@ -4,17 +4,11 @@ import time
 import grovepi
 import threading
 
-# Digital ports that support Pulse Width Modulation (PWM)
-# D3, D5, D6
-
-# Digital ports that do not support PWM
-# D2, D4, D7, D8
-
 class DigitalPrinter(threading.Thread):
   def __init__(self, port):
     self.port = port
 
-  def notify(self, seconds):
+  def handle(self, seconds):
     grovepi.pinMode(self.port, "OUTPUT")
     time.sleep(1)
     i = 0
@@ -33,19 +27,18 @@ class DigitalPrinter(threading.Thread):
    
     grovepi.digitalWrite(self.port, 0)
 
-  def print(self, seconds):
-    t = threading.Thread(target = notify, args = (seconds))
+  def notify(self, seconds):
+    t = threading.Thread(target = self.handle, args = [seconds])
     t.daemon = True
     t.start()
 
 
-kogut = DigitalPrinter(2)
-buzz = DigitalPrinter(7)
+#kogut = DigitalPrinter(7)
+#buzz = DigitalPrinter(2)
 
-kogut.print(5)
-buzz.print(5)
-time.sleep(10)
-
+#kogut.notify(5)
+#buzz.notify(5)
+#time.sleep(10)
 
 #t1 = threading.Thread(target=kogut.notify, args = (5))
 #t1.daemon = True

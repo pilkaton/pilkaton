@@ -4,6 +4,7 @@ import time
 import grovepi
 from ultrasonic import *
 from lcd import Lcd
+from stats import GoalCounter
 
 class Printer:
   def notify(self, event):
@@ -12,7 +13,10 @@ class Printer:
 printer = Printer()
 lcd = Lcd()
 
-left = Ultrasonic(8, [printer, lcd])
+leftGoals = GoalCounter()
+#rightGoals = GoalCounter()
+
+left = Ultrasonic(8, [printer, leftGoals])
 #right = Ultrasonic(9, [printer])
 
 left.handle()

@@ -1,25 +1,32 @@
 import grovepi
+from threadPrinter import DigitalPrinter
 
 class Ultrasonic:
 
   def __init__(self, port, subscribers):
     self.port = port
     self.subscribers = subscribers
+    self.limit = grovepi.ultrasonicRead(self.port)
+    print self.limit
   
   def handle(self):
     while True:
       try:
         value = grovepi.ultrasonicRead(self.port)
-        #if value < 10: # GOAL!!
-        print "SSS", value
-        for s in self.subscribers: # notify
-          s.notify(value) 
+        if value < self.limit: # GOAL!!
+          print "gooooool!!!!!", value, self.limit
+          for s in self.subscribers: # notify
+            s.notify(2) 
 
       except TypeError:
         print ("Error")
       except IOError:
         print ("Error")
 
-#t = threading.Thread(target=ultrasonic.handle)
-#t.start()
 
+kogut = DigitalPrinter(2)
+#buzz = DigitalPrinter(2)
+goalkeeper1  = Ultrasonic(8,[kogut])
+goalkeeper2  = Ultrasonic(7,[kogut])
+goalkeeper1.handle()
+goalkeeper2.handle()

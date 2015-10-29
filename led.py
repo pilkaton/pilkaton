@@ -28,6 +28,6 @@ class Led:
 led1 = Led(3)
 led2 = Led(4)
 
-led1.notify(5)
-led2.notify(5)
+led1.notify(10)
+led2.notify(10)
 

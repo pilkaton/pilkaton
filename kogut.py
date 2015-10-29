@@ -32,7 +32,7 @@ class Kogut:
    
     grovepi.digitalWrite(self.port, 0)
 
-kogut = Kogut(7)
+kogut = Kogut(2)
 #led2 = Led(4)
 
 kogut.notify(5)
