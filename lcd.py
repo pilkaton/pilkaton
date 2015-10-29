@@ -6,8 +6,10 @@ import smbus
 
 class Lcd:
   def notify(self, event):
-    setRGB(0, 255, 0)
-    setText(event)
+    print "Start"
+    setText(str(event))
+#    setRGB(0, 255, 0)
+    print "Notyfing"
 
 
 # this device has two I2C addresses
@@ -64,4 +66,4 @@ def setText(text):
 #        setRGB(c,255-c,0)
 #        time.sleep(0.01)
 #    setRGB(0,255,0)
-#    setText("Bye bye, this should wrap onto next line")
+#    setText("Bye!!, this should wrap onto next line")

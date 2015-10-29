@@ -10,10 +10,10 @@ class Ultrasonic:
     while True:
       try:
         value = grovepi.ultrasonicRead(self.port)
-        if value < 10: # GOAL!!
-          print "SSS", value
-          for s in self.subscribers: # notify
-            s.notify(1) 
+        #if value < 10: # GOAL!!
+        print "SSS", value
+        for s in self.subscribers: # notify
+          s.notify(value) 
 
       except TypeError:
         print ("Error")
