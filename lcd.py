@@ -54,13 +54,3 @@ def setText(text):
         count += 1
         bus.write_byte_data(DISPLAY_TEXT_ADDR,0x40,ord(c))
 
-
-# example code
-#if __name__=="__main__":
-#    setText("Hello world\nThis is an LCD test")
-#    setRGB(0,128,64)
-#    for c in range(0,255):
-#        setRGB(c,255-c,0)
-#        time.sleep(0.01)
-#    setRGB(0,255,0)
-#    setText("Bye!!, this should wrap onto next line")
