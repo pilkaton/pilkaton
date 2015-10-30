@@ -14,10 +14,12 @@ printer = Printer()
 lcd = Lcd()
 
 leftGoals = GoalCounter()
-#rightGoals = GoalCounter()
+rightGoals = GoalCounter()
 
-left = Ultrasonic(8, [printer, leftGoals])
+left = Pir(5, [printer, leftGoals])
+right = Pir(6, [printer, rightGoals])
 #right = Ultrasonic(9, [printer])
 
-left.handle()
+#left.handle()
+
 
